@@ -1,5 +1,5 @@
 import { threadId } from "worker_threads";
-
+//comentário de teste
 interface Funcionario {
     nome: string;
     salario: number;
