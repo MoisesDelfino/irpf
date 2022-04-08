@@ -113,13 +113,8 @@ function calculaInss(salario: number): number {
     } else {
         funcionario.faixaDescontoInss = 22;
     }
-<<<<<<< HEAD
-    funcionario.valorDescontoInss = (salario * (funcionario.faixaDescontoInss / 100));
-    console.log("Faixa de desconto INSS: " + funcionario.faixaDescontoInss + "\nValor desconto INSS: " + funcionario.valorDescontoInss.toFixed(2));
-=======
     funcionario.valorDescontoInss = (funcionario.getSalario() * (funcionario.faixaDescontoInss / 100));
     console.log("Faixa de desconto INSS: " + funcionario.faixaDescontoInss + "%\nValor desconto INSS: R$" + funcionario.valorDescontoInss.toFixed(2));
->>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
     return funcionario.valorDescontoInss;
 }
 
@@ -136,17 +131,6 @@ function calculaIr(salario: number): number {
     } else {
         funcionario.faixaDescontoIr = 27.5;
     }
-<<<<<<< HEAD
-    funcionario.valorDescontoIr = (salario * (funcionario.faixaDescontoIr / 100));
-    console.log("Faixa de desconto IR: " + funcionario.faixaDescontoIr + "\nValor desconto Ir: " + funcionario.valorDescontoIr.toFixed(2));
-    return funcionario.valorDescontoIr;
-}
-
-//FUNÇÃO QUE CALCULA O SALARIO LÍQUIDO
-function calculaSalarioLiquido(salario: number, inss: number, ir: number, horasExtras: number) {
-    funcionario.salarioLiquido = (salario - inss - ir) + horasExtras;
-    console.log("Salário líquido: " + funcionario.salarioLiquido.toFixed(2))
-=======
     funcionario.valorDescontoIr = (funcionario.getSalario() * (funcionario.faixaDescontoIr / 100));
     console.log("Faixa de desconto IR: " + funcionario.faixaDescontoIr + "%\nValor desconto Ir: R$" + funcionario.valorDescontoIr.toFixed(2));
     return funcionario.valorDescontoIr;
@@ -157,7 +141,6 @@ function calculaSalarioLiquido(salario, inss, ir, horasExtras): number{
     const aux2: number = aux - inss;
     funcionario.salarioLiquido = aux2 - ir;
     console.log("Salário líquido: R$" + funcionario.salarioLiquido.toFixed(2))
->>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
 
     return funcionario.salarioLiquido;
 }
