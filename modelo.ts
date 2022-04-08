@@ -83,15 +83,9 @@ const funcionario = new Funcionario();
 //FUNÇÃO QUE CALCULA A QUANTIDADE DE HORAS EXTRAS
 function calculaHorasExtras(qtdHorasExtras): number {
     let valorHoraNormal = (funcionario.getSalario() / 200);
-<<<<<<< HEAD
-    funcionario.valorHorasExtras = ((valorHoraNormal * 1.5) * qtdHorasExtras);
-    console.log("Valor horas extras: " + funcionario.valorHorasExtras.toFixed(2));
-    return funcionario.valorHorasExtras;
-=======
     let valorHorasExtras = ((valorHoraNormal * 1.5) * qtdHorasExtras);
     console.log("Valor horas extras: R$" + valorHorasExtras.toFixed(2));
     return valorHorasExtras;
->>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
 }
 
 //FUNÇÃO QUE CALCULA O VALOR DO DESCONTO DO INSS BASEADO NA FAIXA DE DESCONTO
