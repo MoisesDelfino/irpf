@@ -64,9 +64,15 @@ var funcionario = new Funcionario();
 //FUNÇÃO QUE CALCULA A QUANTIDADE DE HORAS EXTRAS
 function calculaHorasExtras(qtdHorasExtras) {
     var valorHoraNormal = (funcionario.getSalario() / 200);
+<<<<<<< HEAD
     funcionario.valorHorasExtras = ((valorHoraNormal * 1.5) * qtdHorasExtras);
     console.log("Valor horas extras: " + funcionario.valorHorasExtras.toFixed(2));
     return funcionario.valorHorasExtras;
+=======
+    var valorHorasExtras = ((valorHoraNormal * 1.5) * qtdHorasExtras);
+    console.log("Valor horas extras: R$" + valorHorasExtras.toFixed(2));
+    return valorHorasExtras;
+>>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
 }
 //FUNÇÃO QUE CALCULA O VALOR DO DESCONTO DO INSS BASEADO NA FAIXA DE DESCONTO
 function calculaInss(salario) {
@@ -94,8 +100,13 @@ function calculaInss(salario) {
     else {
         funcionario.faixaDescontoInss = 22;
     }
+<<<<<<< HEAD
     funcionario.valorDescontoInss = (salario * (funcionario.faixaDescontoInss / 100));
     console.log("Faixa de desconto INSS: " + funcionario.faixaDescontoInss + "\nValor desconto INSS: " + funcionario.valorDescontoInss.toFixed(2));
+=======
+    funcionario.valorDescontoInss = (funcionario.getSalario() * (funcionario.faixaDescontoInss / 100));
+    console.log("Faixa de desconto INSS: " + funcionario.faixaDescontoInss + "%\nValor desconto INSS: R$" + funcionario.valorDescontoInss.toFixed(2));
+>>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
     return funcionario.valorDescontoInss;
 }
 //FUNÇÃO QUE CALCULA O IMPOSTO DE RENDA
@@ -115,14 +126,26 @@ function calculaIr(salario) {
     else {
         funcionario.faixaDescontoIr = 27.5;
     }
+<<<<<<< HEAD
     funcionario.valorDescontoIr = (salario * (funcionario.faixaDescontoIr / 100));
     console.log("Faixa de desconto IR: " + funcionario.faixaDescontoIr + "\nValor desconto Ir: " + funcionario.valorDescontoIr.toFixed(2));
+=======
+    funcionario.valorDescontoIr = (funcionario.getSalario() * (funcionario.faixaDescontoIr / 100));
+    console.log("Faixa de desconto IR: " + funcionario.faixaDescontoIr + "%\nValor desconto Ir: R$" + funcionario.valorDescontoIr.toFixed(2));
+>>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
     return funcionario.valorDescontoIr;
 }
 //FUNÇÃO QUE CALCULA O SALARIO LÍQUIDO
 function calculaSalarioLiquido(salario, inss, ir, horasExtras) {
+<<<<<<< HEAD
     funcionario.salarioLiquido = (salario - inss - ir) + horasExtras;
     console.log("Salário líquido: " + funcionario.salarioLiquido.toFixed(2));
+=======
+    var aux = salario + horasExtras;
+    var aux2 = aux - inss;
+    funcionario.salarioLiquido = aux2 - ir;
+    console.log("Salário líquido: R$" + funcionario.salarioLiquido.toFixed(2));
+>>>>>>> 6ef3c6f4c52d00b6c9881f1551287c92a304adfc
     return funcionario.salarioLiquido;
 }
 //FUNÇÃO PRINCIPAL, RESPONSÁVEL POR RECEBER OS DADOS INICIAIS E REALIZAR AS CHAMADAS DAS FUNÇÕES
@@ -132,7 +155,7 @@ function modelo(nome, salario, horasExtras) {
     funcionario.setHorasExtras(horasExtras);
     console.log("######## CÁLCULO IMPOSTO DE RENDA ########");
     console.log("Nome: " + funcionario.getNome());
-    console.log("Salário bruto: " + funcionario.getSalario());
+    console.log("Salário bruto: R$" + funcionario.getSalario().toFixed(2));
     console.log("Quantidade horas extras: " + funcionario.getHorasExtras());
     if ((funcionario.getNome()) && (funcionario.getSalario()) && (funcionario.getHorasExtras())) {
         calculaHorasExtras(funcionario.getHorasExtras());
