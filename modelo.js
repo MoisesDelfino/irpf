@@ -152,7 +152,7 @@ function modelo(nome, salario, horasExtras) {
     funcionario.setHorasExtras(horasExtras);
     console.log("######## CÁLCULO IMPOSTO DE RENDA ########");
     console.log("Nome: " + funcionario.getNome());
-    console.log("Salário bruto: R$" + funcionario.getSalario());
+    console.log("Salário bruto: R$ " + funcionario.getSalario().toFixed(2));
     console.log("Quantidade horas extras: " + funcionario.getHorasExtras());
     if ((funcionario.getNome()) && (funcionario.getSalario()) && (funcionario.getHorasExtras())) {
         calculaHorasExtras(funcionario.getHorasExtras());
@@ -160,7 +160,6 @@ function modelo(nome, salario, horasExtras) {
         calculaIr(funcionario.getSalario());
         calculaSalarioLiquido(funcionario.getSalario(), funcionario.getValorDescontoInss(), funcionario.getValorDescontoIr(), funcionario.
             getValorHorasExtras());
-        console.log();
     }
     else if (((funcionario.getNome()) && (funcionario.getSalario()))) {
         calculaInss(funcionario.getSalario());
