@@ -85,7 +85,7 @@ function calculaHorasExtras(qtdHorasExtras): number {
     let valorHoraNormal = (funcionario.getSalario() / 200);
     let valorHorasExtras = ((valorHoraNormal * 1.5) * qtdHorasExtras);
     funcionario.setValorHorasExtras(valorHorasExtras);
-    console.log("Valor horas extras: R$ " + funcionario.getValorHorasExtras().toFixed(2));
+    console.log("# Valor horas extras: R$ " + funcionario.getValorHorasExtras().toFixed(2));
     return valorHorasExtras;
 }
 
@@ -120,7 +120,7 @@ function calculaInss(salario: number): number {
     let valorInss: number;
     valorInss = (funcionario.getSalario() * (funcionario.getFaixaDescontoInss() / 100));
     funcionario.setValorDescontoInss(valorInss);
-    console.log("Faixa de desconto INSS: " + funcionario.getFaixaDescontoInss() + "%\nValor desconto INSS: R$ " + funcionario.getValorDescontoInss().toFixed(2));
+    console.log("# Faixa de desconto INSS: " + funcionario.getFaixaDescontoInss() + "%\n# Valor desconto INSS: R$ " + funcionario.getValorDescontoInss().toFixed(2));
     return funcionario.valorDescontoInss;
 }
 
@@ -146,14 +146,14 @@ function calculaIr(salario: number): number {
     let valorIr: number;
     valorIr = (funcionario.getSalario() * (funcionario.getFaixaDescontoIr() / 100));
     funcionario.setValorDescontoIr(valorIr);
-    console.log("Faixa de desconto IR: " + funcionario.getFaixaDescontoIr() + "%\nValor desconto IR: R$ " + funcionario.getValorDescontoIr().toFixed(2));
+    console.log("# Faixa de desconto IR: " + funcionario.getFaixaDescontoIr() + "%\n# Valor desconto IR: R$ " + funcionario.getValorDescontoIr().toFixed(2));
     return funcionario.valorDescontoIr;
 }
 
 function calculaSalarioLiquido(salario, inss, ir, horasExtras): number{
     let resultadoSalarioLiquido: number = (salario + horasExtras) - (inss + ir);
     funcionario.setSalarioLiquido(resultadoSalarioLiquido);
-    console.log("Salário líquido: R$ " + funcionario.getSalarioLiquido().toFixed(2))
+    console.log("# Salário líquido: R$ " + funcionario.getSalarioLiquido().toFixed(2))
 
     return funcionario.salarioLiquido;
 }
@@ -163,10 +163,12 @@ function modelo(nome: string, salario: number, horasExtras: number) {
     funcionario.setNome(nome);
     funcionario.setSalario(salario);
     funcionario.setHorasExtras(horasExtras);
-    console.log("######## CÁLCULO IMPOSTO DE RENDA ########")
-    console.log("Nome: " + funcionario.getNome());
-    console.log("Salário bruto: R$ " + funcionario.getSalario().toFixed(2));
-    console.log("Quantidade horas extras: " + funcionario.getHorasExtras()
+    console.log("________________________________________________\n\n" +           
+                    "            CÁLCULO IMPOSTO DE RENDA " + "\n" +
+                "________________________________________________\n");
+    console.log("# Nome: " + funcionario.getNome());
+    console.log("# Salário bruto: R$ " + funcionario.getSalario().toFixed(2));
+    console.log("# Quantidade horas extras: " + funcionario.getHorasExtras()
     );
 
     if ((funcionario.getNome()) && (funcionario.getSalario()) && (funcionario.getHorasExtras())) {
@@ -180,6 +182,7 @@ function modelo(nome: string, salario: number, horasExtras: number) {
         calculaIr(funcionario.getSalario());
         calculaSalarioLiquido(funcionario.getSalario(), funcionario.getValorDescontoInss(), funcionario.getValorDescontoIr(), funcionario.getValorHorasExtras());
     }
+    console.log("________________________________________________");
 
 }
 
